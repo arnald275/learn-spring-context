@@ -37,6 +37,8 @@ ServletContextResource
 ***If we want to force the resource type, no matter
 what context type is used, the resource must be specified using the desired prefix***
 
+
+
 **note: The @Configuration annotation is a specialization of the @Component annotation,
 which is the core annotation for creating beans. This means that the configuration
 class itself is a declaration for a bean**
