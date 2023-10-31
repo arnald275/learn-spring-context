@@ -1,4 +1,4 @@
-# ApplicatinContext
+# 1 .ApplicatinContext
 An application context is created by the Spring IoC container and initialized
 with a configuration provided by a resource that can be an XML file (ClassPathXmlApplicationContext or FileSystemXmlApplicationContext) or a
 configuration class (AnnotationConfigApplicationContext) or both
@@ -36,6 +36,77 @@ ServletContextResource
 
 ***If we want to force the resource type, no matter
 what context type is used, the resource must be specified using the desired prefix***
+
+
+# 2. Bean Definition
+
+A Spring IoC container manages one or more beans. These beans are created with the configuration
+metadata that you supply to the container (for example, in the form of XML <bean/> definitions).
+Within the container itself, these bean definitions are represented as BeanDefinition objects, which
+contain (among other information) the following metadata:
+1. A package-qualified class name: typically, the actual implementation class of the bean being defined.
+2. Bean behavioral configuration elements, which state how the bean should behave in the
+container (scope, lifecycle callbacks, and so forth).
+3. References to other beans that are needed for the bean to do its work. These references are also
+called collaborators or dependencies.
+4. Other configuration settings to set in the newly created object — for example, the size limit of
+the pool or the number of connections to use in a bean that manages a connection pool.
+
+|      PROPERTY       |       EXPLANATION        |
+|:-------------------:|:------------------------:|
+|        class        |   Instantiating beans    |
+|        name         |       naming beans       |
+|        scope        |       Beans Scope        |
+|  constructor Args   |   dependency injection   |
+|     properties      |   dependency injection   |
+|   Autowiring mode   | Autowiring Collaborator  |
+| Lazy initialization | Lazy initializating bean |
+| initializing method |  initializing callback   |
+| destructing method  |   destructing callback   |
+
+
+
+### Naming Beans
+Every bean has one or more identifiers. These identifiers must be unique within the container that
+hosts the bean. A bean usually has only one identifier. However, if it requires more than one, the
+extra ones can be considered aliases.
+
+The convention is to use the standard Java convention for instance field names when naming
+beans. That is, bean names start with a lowercase letter and are camel-cased from there.
+Examples of such names include accountManager, accountService, userDao, loginController, and
+so forth.
+
+### Instantiating Beans
+A bean definition is essentially a recipe for creating one or more objects. The container looks at the
+recipe for a named bean when asked and uses the configuration metadata encapsulated by that
+bean definition to create (or acquire) an actual object.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
