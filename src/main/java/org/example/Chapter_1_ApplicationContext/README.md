@@ -81,7 +81,26 @@ A bean definition is essentially a recipe for creating one or more objects. The 
 recipe for a named bean when asked and uses the configuration metadata encapsulated by that
 bean definition to create (or acquire) an actual object.
 
+### Instantiation with a Constructor
+The Spring IoC container can manage virtually any class you want it to manage. It is not limited to
+managing true JavaBeans. Most Spring users prefer actual JavaBeans with only a default (noargument) constructor and appropriate setters and getters modeled after the properties in the
+container. You can also have more exotic non-bean-style classes in your container.
 
+### Instantiation with a Static Factory Method
+When defining a bean that you create with a static factory method, use the class attribute to specify
+the class that contains the static factory method and an attribute named factory-method to specify
+the name of the factory method itself.***You should be able to call this method and return a live object, which subsequently is treated as if it had
+been created through a constructor***. One use for such a bean definition is to call static factories in
+legacy code.
+
+### Instantiation by Using an Instance Factory Method
+
+Similar to instantiation through a static factory method, instantiation with an instance factory
+method invokes a non-static method of an existing bean from the container to create a new bean.
+To use this mechanism, leave the class attribute empty and, in the factory-bean attribute, specify
+the name of a bean in the current (or parent or ancestor) container that contains the instance
+method that is to be invoked to create the object. Set the name of the factory method itself with the
+factory-method attribute.
 
 
 
