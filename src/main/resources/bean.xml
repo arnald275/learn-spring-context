@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+  https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="person" class="org.example.Chapter_1_ApplicationContext.instantiation.Person"/>
+
+    <bean id="staticFactoryMethod" class="org.example.Chapter_1_ApplicationContext.instantiation.StaticFactoryMethod" factory-method="getInstance"/>
+
+    <!--  instance factory method  -->
+    <bean id="instanceFactoryMethod" class="org.example.Chapter_1_ApplicationContext.instantiation.InstanceFactoryMethod"/>
+    <bean id="instanceOfPersonByInstanceFactoryMethod" factory-bean="instanceFactoryMethod" factory-method="instanceMethod"/>
+</beans>
